@@ -1,0 +1,592 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resume form</title>
+    <link type="image/png" sizes="32x32" rel="icon" href="favicon.png">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #b7c092;
+        }
+
+        .top {
+            position: fixed;
+            top: 0;
+            z-index: 3;
+        }
+
+        nav {
+            background-color: black;
+            color: white;
+            padding: 25px;
+            cursor: pointer;
+            display: inline-flex;
+            width: 100%;
+            justify-content: space-between;
+            cursor: pointer;
+            position: fixed;
+            font-family: 'Roboto', sans-serif;
+            height: 75px;
+            z-index: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: 10px;
+            /*border: 1px solid rgb(187, 21, 121);*/
+            /*margin-top: 0;
+            margin-bottom: 0;
+            font-size: 30px;*/
+        }
+
+
+        a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 30px;
+            /*border: 1px solid blue;*/
+            display: block;
+        }
+
+        /*BUTTON HOVER START*/
+        .btn {
+            --color: #ffffff;
+            --color2: rgb(10, 25, 30);
+            padding: .2em 1.75em;
+            background-color: transparent;
+            border-radius: 6px;
+            border: .3px solid var(--color);
+            transition: .5s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 1;
+            font-weight: 300;
+            font-size: 17px;
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            color: var(--color);
+        }
+
+        .btn::after,
+        .btn::before {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            transform: skew(90deg) translate(-50%, -50%);
+            position: absolute;
+            inset: 50%;
+            left: 25%;
+            z-index: -1;
+            transition: .5s ease-out;
+            background-color: var(--color);
+        }
+
+        .btn::before {
+            top: -50%;
+            left: -25%;
+            transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+        }
+
+        .btn:hover::after {
+            transform: skew(45deg) translate(-50%, -50%);
+        }
+
+        .btn:hover {
+            color: var(--color2);
+        }
+
+        .btn:active {
+            filter: brightness(.7);
+            transform: scale(.98);
+        }
+
+        /*BUTTON HOVER END*/
+        .head {
+            font-size: 35px;
+            pointer-events: none;
+            display: block;
+            position: relative;
+            top: -17px;
+            left: -18px;
+        }
+
+       
+        .zoom {
+            transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        }
+
+        .zoom:hover {
+            -ms-transform: scale(1.2);
+            /* IE 9 */
+            -webkit-transform: scale(1.2);
+            /* Safari 3-8 */
+            transform: scale(.9);
+            box-shadow: 10px 10px 40px 10px rgb(111, 109, 109);
+        }
+
+        .presonal {
+            padding-top: 20px;
+            border: 5px solid black;
+            /*background-color: rgb(166, 166, 166);*/
+            display: inline-flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 69px;
+        }
+
+        .infoPerson {
+            border-radius: 25px;
+            padding-top: 10px;
+            /*border: 5px solid rgb(255, 80, 80);*/
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .inp1 {
+            border: none;
+            border-bottom: 2px solid #1890ff;
+            padding: 5px 10px;
+            outline: none;
+            width: 98%;
+            background-color: rgb(250, 253, 253);
+            padding: 10px 0;
+            margin: 10px;
+            transition: 0.5s;
+        }
+
+        .form-group {
+            width: 86%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: baseline;
+            background-color: rgb(112 112 112 / 16%);
+            border-radius: 20px;
+            overflow-x: hidden;
+        }
+
+        .form-group:hover {
+            background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+            box-shadow: none;
+        }
+
+        label {
+            color: white;
+        }
+
+        span {
+            color: #66727e;
+        }
+
+        .inp1:focus {
+            border-color: green;
+            min-width: max-content;
+        }
+
+        textarea {
+            height: 100px;
+            width: 400px;
+            /* Prevent the appearance of scrollbars */
+            overflow: hidden;
+            resize: none;
+        }
+
+        ol,
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+            margin-right: 50px;
+        }
+
+        /* .inp1:hover {
+            transform: scale(1.1);
+        }*/
+
+        [placeholder]:focus::-webkit-input-placeholder {
+            transition: text-indent 0.4s 0.4s ease;
+            text-indent: -100%;
+            color: white;
+            opacity: 1;
+        }
+
+        .pad {
+            padding-top: 30px;
+        }
+
+        .mar {
+            margin: 20px;
+        }
+
+        
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 5px solid blue;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.68);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+
+
+        @keyframes animate {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+
+        /* animated background ends*/
+
+        .bt {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 68px;
+            background-color: black;
+            margin-top: 21px;
+        }
+
+        .absdiv {
+            background-color: #dcff72;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+
+        <nav>
+            <a href="landing-page.html" class="head">Inter<span>Viewee</span></a>
+            <div>
+                <ul>
+                   <!--  <li><a href="#about" class="btn">About</a></li>
+                    <li><a href="#" class="btn">Templates</a></li> 
+                    <li><a href="#contact" class="btn">Contact</a></li>-->
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <!--<li><a href="/signup" class="btn">SignOut</a></li>-->
+                    <li><a href="{%url 'home'%}" class="btn">Home</a></li>
+                    <li><a href="{%url 'signup'%}" class="btn">Log In</a></li>
+                    <li><a href="{%url 'login'%}" class="btn">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="absdiv" id="id01">
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> 
+            <button type="button" class="close" data-dismiss="alert" id="id01" aria-label="Close"
+                onclick="document.getElementById('id01').style.display='none'">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="presonal text-center ">
+
+        <!-- /*<div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>*/ -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <h1 class="text-center"><b>Your Personal Information </b></h1>
+            <div class="infoPerson text-center">
+                {%csrf_token%}
+                <div class="form-group zoom">
+                    <br>
+                    <label for="">Choose a image :</label>
+                    <input type="file" class="inp1" id="name" name="userimg" placeholder=" Enter your Name "
+                        Required /><br><br>
+                </div>
+                <div class="form-group zoom">
+                    <br>
+                    <label for="">Name :</label>
+                    <input type="text" class="inp1" id="name" name="username" placeholder=" Enter your Name "
+                        Required /><br><br>
+                </div>
+                <div class="form-group zoom">
+                    <br>
+                    <label for="">Phone :</label>
+                    <input type="text" class="inp1" id="fname" name="usernumber" placeholder=" Enter your Phone Number "
+                        Required /><br><br>
+                </div>
+                <div class="form-group zoom">
+                    <br>
+                    <label for="Email">Email :</label>
+                    <input type="text" class="inp1" id="username" name="useremail" placeholder=" Enter your Email "
+                        Required /><br><br>
+                </div>
+                <div class="form-group zoom">
+                    <br>
+                    <label for="">Place :</label>
+                    <input type="text" class="inp1" id="fname" name="useraddress" placeholder=" Where do you Live "
+                        Required /><br><br>
+                </div>
+                <div class="form-group zoom">
+                    <br>
+                    <label for="">hobbies :</label>
+                    <input type="text" class="inp1" id="fname" name="userhobbies" placeholder=" Where do you Live "
+                        Required /><br><br>
+                </div>
+            </div>
+
+
+            <h1 class="text-center pad"><b>Your Professiona Information </b></h1>
+            <div class="infoPerson text-center">
+                <div class="form-group zoom"><br>
+                    <label for="languages">Languages :</label>
+                    <textarea class="inp1" name="userlang" placeholder=" What languages do yoy know "
+                        required></textarea><br><br>
+                    <!-- <input type="text" class="inp1" id="name" name="languages" placeholder=" Enter your Name "
+                        Required /><br><br> -->
+                </div>
+                <div class="form-group zoom"><br>
+                    <label for="profile">Personal Profile :</label>
+                    <textarea class="inp1" name="userprofile" placeholder=" Write your personal profile here "
+                        required></textarea><br><br>
+                </div>
+                <div class="form-group zoom"><br>
+                    <label for="achievements">Achievements :</label>
+                    <textarea class="inp1" name="userachieve" placeholder=" Write your achievements here "
+                        required></textarea><br><br>
+                </div>
+                <div class="form-group zoom"><br>
+                    <label for="education">Education :</label>
+                    <textarea class="inp1" name="userquali" placeholder=" Write your education"required></textarea><br><br>
+                </div>
+                <div class="form-group zoom"><br>
+                    <label for="sp">Skills/Projects :</label>
+                    <textarea class="inp1" name="userproject" placeholder="Your skills/projects" required></textarea><br><br>
+                </div>
+                <!-- <div class="form-group zoom"><br>
+                    <label for="skills">Skills/Projects :</label>
+                    <textarea   class="inp1" name="skills" placeholder=" Where do you Live "
+                        required></textarea><br><br>
+                </div> -->
+                <!--<div class="form-group zoom"><br>
+                    <label for="other">Other Activities :</label>
+                    <textarea class="inp1" name="other" placeholder=" Where do you Live " required></textarea><br><br>
+                </div>-->
+                
+            </div>
+            <div class="bt">
+
+                <button type="submit" class="btn mar">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- <div class="formDiv">
+        <form action="">
+            {% csrf_token %}
+            <div class="fdiv">
+                <input class="inp12" type="image" alt="profile picture">
+                <input class="inp12" type="text" placeholder="your name">
+                <input class="inp12" type="text" placeholder="contact number">
+                <input class="inp12" type="text" placeholder="your email">
+                <input class="inp12" type="text" placeholder="your address">
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+                <textarea class="txt12" placeholder="specify some languages know"></textarea>
+            </div>
+            <div>
+                <button>
+                    <span class="label"><a href="#cusdiv">Next</a></span>
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor"
+                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
+                            </path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+        </form>
+
+    </div> -->
+    <!-- <script>
+        // Add an event listener to the textarea to adjust its height as the content changes
+        document.querySelector('textarea').addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    </script> -->
+    <script>
+        // Add an event listener to all textareas to adjust their height as the content changes
+        document.querySelectorAll('textarea').forEach(function (textarea) {
+            textarea.addEventListener('input', function () {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>

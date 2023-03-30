@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style1.css'%}">
+</head>
+<body>
+    
+    <div class="main">
+        <div class="sidediv">
+            <div class="msg">
+            <h2>WELCOME</h2>
+
+            <h2>GLADE TO SEE YOU</h2>
+            </div>
+            <div class="inpdiv">
+            <form method="post">
+            {%csrf_token%}
+            <input class="inp1" type="text" placeholder="enter your name" name="name">
+            <input class="inp1" type="text" placeholder="enter your email" name="email">
+            <input class="inp1" type="password" placeholder="enter your password" name="password">
+            </div>
+            <div class="btndiv">
+                <button class="bt1" id="b1" type="submit">signup</button>
+            </form>
+                <a href="{% url 'login' %}"><button class="bt1" type="submit">login</button></a>
+            </div>
+
+        </div>
+
+    </div>
+<script>
+    
+</script>
+
+</body>
+</html>

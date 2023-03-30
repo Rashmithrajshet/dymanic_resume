@@ -1,0 +1,905 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interviewee</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@200&display=swap"
+        rel="stylesheet">
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <style>
+        body {
+            overflow-x: hidden;
+            /*max-width: 100%;*/
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            /*-webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;*/
+        }
+
+        .top {
+            position: fixed;
+            top: 0;
+            z-index: 4;
+        }
+
+        nav {
+            background-color: black;
+            color: white;
+            padding: 25px;
+            cursor: pointer;
+            display: inline-flex;
+            width: 100%;
+            justify-content: space-between;
+            cursor: pointer;
+            position: fixed;
+            font-family: 'Roboto', sans-serif;
+            height: 75px;
+            z-index: 4;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: 10px;
+            /*border: 1px solid rgb(187, 21, 121);*/
+            /*margin-top: 0;
+            margin-bottom: 0;
+            font-size: 30px;*/
+        }
+
+
+        a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 30px;
+            /*border: 1px solid blue;*/
+            display: block;
+        }
+
+        /*BUTTON HOVER START*/
+        .btn {
+            --color: #ffffff;
+            --color2: rgb(10, 25, 30);
+            padding: .2em 1.75em;
+            background-color: transparent;
+            border-radius: 6px;
+            border: .3px solid var(--color);
+            transition: .5s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 1;
+            font-weight: 300;
+            font-size: 17px;
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            color: var(--color);
+        }
+
+        .btn::after,
+        .btn::before {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            transform: skew(90deg) translate(-50%, -50%);
+            position: absolute;
+            inset: 50%;
+            left: 25%;
+            z-index: -1;
+            transition: .5s ease-out;
+            background-color: var(--color);
+        }
+
+        .btn::before {
+            top: -50%;
+            left: -25%;
+            transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+        }
+
+        .btn:hover::after {
+            transform: skew(45deg) translate(-50%, -50%);
+        }
+
+        .btn:hover {
+            color: var(--color2);
+        }
+
+        .btn:active {
+            filter: brightness(.7);
+            transform: scale(.98);
+        }
+
+        /*BUTTON HOVER END*/
+        .head {
+            font-size: 35px;
+            pointer-events: none;
+            display: block;
+            position: relative;
+            top: -17px;
+            left: -18px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            /*border: 2px solid yellow;*/
+            position: relative;
+            z-index: 2;
+            /*margin-top: -65px;*/
+        }
+
+        .padding {
+            margin-top: 100px;
+        }
+
+        .row {
+            padding: 10px 0;
+            display: inline-flex;
+            /*border: 3px solid red;*/
+            gap: 10px;
+            margin-top: -16px;
+            z-index: -1;
+            width: calc(100vw);
+            height: calc(100vh);
+            padding-bottom: 0;
+            /*    background-size: cover;
+            background-color: white;*/
+        }
+
+        .row2 {
+            padding: 70px 0;
+            display: inline-flex;
+            /*border: 3px solid red;*/
+            gap: 10px;
+            margin-top: -16px;
+            z-index: -1;
+            width: calc(100vw);
+            height: calc(100vh);
+            padding-bottom: 0;
+        }
+
+        /*.row>* {
+            border: 2px solid blue;
+            padding: 25px;
+        }*/
+
+        .div1 {
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            /* border: 1px solid rgba(255, 255, 255, 0.025);*/
+        }
+
+        .svgin {
+            position: absolute;
+            left: 215px;
+            height: 487px;
+            width: 278px;
+        }
+
+        /* navbar ends here*/
+
+        .blob {
+            position: absolute;
+            left: -104px;
+            top: 50px;
+            width: 865px;
+            height: 650px;
+        }
+
+        .svgin {
+            position: relative;
+            left: 0;
+            height: 550px;
+            width: 630px;
+        }
+
+        .ani-blob-t {
+            position: relative;
+            top: -78px;
+            left: 46px;
+            width: 139px;
+        }
+
+        .ani-blob-b {
+            position: relative;
+            left: 160px;
+            bottom: -400px;
+            width: 197px;
+        }
+
+        /*.data {
+            border: 5px solid purple;
+        }*/
+
+        .h1 {
+            position: relative;
+            top: -50px;
+            font-family: cursive;
+            text-align: center;
+            font-size: 2.5em;
+            text-transform: capitalize;
+        }
+
+
+
+        p {
+            width: 484px;
+            position: relative;
+            top: -45px;
+            left: 27px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        span {
+            color: #66727e;
+        }
+
+        .text-center {
+            padding: 0 25%;
+            width: 100%;
+            height: 64px;
+            text-align: center;
+            font-family: cursive;
+            font-size: 2.5em;
+        }
+
+
+
+        /**/
+        .buttons {
+            position: relative;
+            right: 180px;
+            margin: 0%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-hover {
+            width: 200px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            margin: 20px;
+            height: 55px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 50px;
+        }
+
+        .btn-hover.color-8 {
+            background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+            /* box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);*/
+            box-shadow: 0 4px 15px 0 rgba(84, 88, 94, 0.75);
+        }
+
+        /*animated background*/
+
+
+        .context {
+            width: 100%;
+            position: absolute;
+            /*top: 786px;*/
+            z-index: 2;
+        }
+
+        .context h1 {
+            font-family: cursive;
+            text-align: center;
+            color: #fff;
+            font-size: 50px;
+            position: relative;
+            padding: 16px 0;
+        }
+
+
+        .area {
+            background: -webkit-linear-gradient(to left, #aaaaaa, #ffffff);
+            background: black;
+            width: 100%;
+            height: 90vh;
+
+
+        }
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(244, 244, 244, 0.68);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+
+
+        @keyframes animate {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+
+        /* animated background ends*/
+        .steps {
+            display: flex;
+            padding: 50px 5px;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+
+        .steps li>* {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /*.steps li {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }*/
+
+
+        li p {
+            padding: 10px;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            width: 200px;
+            color: white;
+            font-size: 20px;
+            margin-left: -27px;
+            border-radius: 10px;
+            padding-top: 10px;
+            margin-top: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(11px);
+            backdrop-filter: blur(11px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        li>img {
+            position: relative;
+            width: 200px;
+            height: 300px;
+        }
+
+        .pop {
+            /* position: absolute;
+            color: rgb(0, 0, 0);
+            background: #b1b1b1;
+            background: -webkit-linear-gradient(0deg, #b1b1b1 0%, #7d7a7a 100%);
+            background: linear-gradient(0deg, #b1b1b1 0%, #7d7a7a 100%);
+            /*background: rgba(255, 255, 255, 0.25);
+            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);*/
+            /* z-index: 2;
+            top: 100px;
+            right: 0;
+            width: 300px;
+            height: 200px;*/
+
+
+            position: absolute;
+            color: rgb(0, 0, 0);
+            background: #b1b1b1;
+            background: -webkit-linear-gradient(0deg, #b1b1b1 0%, #7d7a7a 100%);
+            background: linear-gradient(0deg, #b1b1b1 0%, #7d7a7a 100%);
+            z-index: 2;
+            top: 86px;
+            right: 0;
+            padding: 20px;
+            width: 300px;
+            height: 158px;
+
+        }
+
+        .margin {
+            margin-top: 0;
+        }
+
+        #contact {
+            width: 100vw;
+            height: 100vh;
+            margin-top: -12px;
+            background-color: #afafaf;
+            ;
+        }
+
+        .contactsvg {
+            width: 662px;
+            height: 520px;
+            margin-left: 15px;
+            margin-top: 22px;
+        }
+
+        .row3>h2 {
+            text-align: center;
+            font-size: 40px;
+            font-family: cursive;
+            margin-top: 112px;
+        }
+
+        /*.row3 {
+            border: 3px solid peru;
+        }*/
+
+        .inside {
+            width: 100%;
+            /* border: 2px solid seagreen;*/
+            display: inline-flex;
+            gap: 15px;
+        }
+
+        .fill {
+            position: relative;
+            left: 155px;
+            width: 27%;
+            text-align: center;
+            display: inline-flex;
+            flex-direction: column;
+            background-color: #000000;
+            justify-content: space-evenly;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+
+        .formfill {
+            display: inline-flex;
+            flex-direction: column;
+            padding: 15px 15px;
+        }
+
+        /* contact button stsrts here*/
+        .inp1 {
+            border: none;
+            /*border-bottom: 2px solid #1890ff;*/
+            padding: 5px 10px;
+            outline: none;
+            width: 250px;
+            background-color: rgb(250, 253, 253);
+            padding: 10px;
+            margin: 10px;
+            transition: 0.5s;
+        }
+
+        .inp1:focus {
+            border-color: green;
+        }
+
+        .inp1:hover {
+            transform: scale(1.1);
+        }
+
+        [placeholder]:focus::-webkit-input-placeholder {
+            transition: text-indent 0.4s 0.4s ease;
+            text-indent: -100%;
+            color: white;
+            opacity: 1;
+        }
+
+        #about {
+            position: relative;
+        }
+
+
+        /* contact button ends here */
+        textarea {
+            height: 100px;
+            width: 150px;
+            /* Prevent the appearance of scrollbars */
+            /*overflow: hidden;*/
+            resize: none;
+        }
+
+        .absdivv {
+            z-index: 3;
+            /*background-color: #dcff72;
+            color: black;*/
+            /*position: relative;
+            top: 75px;
+            right: 0;
+            color: black;
+            height: 53px;
+            width: 100%;*/
+            position: relative;
+            /* background-color: #dcff72;*/
+            color: black;
+            top: 74px;
+            width: 100%;
+            height: 53px;
+
+        }
+
+        .alert-dismissible {
+            padding-right: 4rem;
+        }
+
+        .alert {
+            background-color: #dcff72;
+            width: 100%;
+            position: relative;
+            padding: .75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .fade {
+            transition: opacity .15s linear;
+        }
+
+        .alert-dismissible .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px 10px;
+            color: inherit;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .5;
+        }
+
+        [type=button]:not(:disabled),
+        [type=reset]:not(:disabled),
+        [type=submit]:not(:disabled),
+        button:not(:disabled) {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+
+        <nav>
+            <a href="landing-page.html" class="head">Inter<span>Viewee</span></a>
+            <div>
+                <ul>
+                    <li><a href="#home" class="btn">Home</a></li>
+                    <li><a href="#about" class="btn">About</a></li>
+                    <!-- <li><a href="#" class="btn">Templates</a></li> -->
+                    <li><a href="#contact" class="btn">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <!-- <div class="pop">
+            <h3> welcome to interviewee</h3>
+
+            {% if user.is_authenticated %}
+            <h3>Hello {{fname}}</h3>
+            <h5>you're sucessfully logged in</h5>
+            <button type="button"><a href="/signup">signOut</a></button>
+            {% else %}
+            <! ---href="signup"  must be same as path('signup'...) in urls.py--- -->
+                <!-- <button type="button"><a href="/signup">signUp</a></button>
+            <button type="button"><a href="/signin">signIn</a></button>
+            {%endif%}
+        </div> -->
+                <ul>
+                    <li><a href="{% url 'login' %}" class="btn">Log In</a></li>
+                    <li><a href="{% url 'signup' %}" class="btn">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!--<div class="absdivv" id="id01">
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong>
+            <button type="button" class="close" data-dismiss="alert" id="id01" aria-label="Close"
+                onclick="document.getElementById('id01').style.display='none'">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>-->
+    </div>
+    <!-- {%if messages%}
+    <ul class="messages">
+        {%for message in messages%}
+        <li {%if message.tags%} class="{{message.tags}}" {%endif%}>
+            {{message}}</li>
+        {%endfor%}
+    </ul>
+    {%endif%}
+
+    </ul> -->
+
+    <!-- {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        <div class=" alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message :</strong>{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %} -->
+
+    <!-- <div class="pop">
+            <h3> welcome to interviewee</h3>
+
+            {% if user.is_authenticated %}
+            <h3>Hello {{fname}}</h3>
+            <h5>you're sucessfully logged in</h5>
+            <button type="button"><a href="/signup">signOut</a></button>
+            {% else %}
+            <! ---href="signup"  must be same as path('signup'...) in urls.py--- -->
+    <!-- <button type="button"><a href="/signup">signUp</a></button>
+            <button type="button"><a href="/signin">signIn</a></button>
+            {%endif%}
+        </div> -->
+    <div class="container" id="home">
+
+
+        <section class="padding">
+            <div class="row">
+                <div>
+                    <img src="{%static 'images/bgo.png' %}" alt="pgn" class="blob" data-aos="zoom-in"
+                        data-aos-duration="2000" />
+                    <img src="{%static 'images/Looking-for-candidate.png' %}" alt="pgn" class="svgin" />
+                </div>
+                <div class="data">
+                    <div class="absdiv">
+
+                    </div>
+                    <img src="{% static 'images/blobanimation.svg' %}" alt="animation" class="ani-blob-t" data-aos="zoom-in"
+                        data-aos-duration="2000" />
+                    <img src="{% static 'images/blobanimation1.svg' %}" alt="animation" class="ani-blob-b" data-aos="zoom-in"
+                        data-aos-duration="2000" />
+                    <h1 class="h1"> Create a <span>resume</span> to land <span>your next job</span></h1>
+                    <p><b>We have developed a resume builder to help you create professional-looking resume quickly
+                            and
+                            easily.</b>
+                    </p>
+                    <div class="buttons">
+                        <a href="{%url 'signup'%}"><button class="btn-hover color-8">TRY NOW</button></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- <div class="context">
+            <section id="about">
+                <div class="row">
+                    <h1 class="text-center">How to build a resume</h1>
+                </div>
+            </section>
+        </div> -->
+
+
+        <section id="about">
+            <div class="row2 margin">
+                <div class="area">
+                    <div class="context">
+                        <!-- <section id="about"> -->
+
+                        <h1 class="h1_about">How to build a <span>Resume</span></h1>
+                        <ul class="steps">
+                            <li data-aos="zoom-in" data-aos-duration="2000"> <img class="insideLi"
+                                    src="{%static 'images/step_2@2x.png'%}" alt="#" id="in-img" />
+                                <p class="insideLi"> Feed the information </p>
+                            </li>
+                            <li data-aos="zoom-in" data-aos-duration="2000">
+                                <img class="insideLi" src="{%static 'images/step_1@2x.png' %}" alt="#" id="in-img" />
+                                <p class="insideLi"> select the template of your choice </p>
+
+                            </li>
+                            <li data-aos="zoom-in" data-aos-duration="2000"><img class="insideLi"
+                                    src="{%static 'images/step_3@2x.png' %}" alt="#" id="in-img" />
+                                <p class="insideLi"> Change the appearence as you wish </p>
+                            </li>
+                            <li data-aos="zoom-in" data-aos-duration="2000"><img class="insideLi"
+                                    src="{%static 'images/step_4@2x.png' %}" alt="#" id="in-img" />
+                                <p class="insideLi"> Download as pdf </p>
+                            </li>
+                        </ul>
+                        <!-- </section> -->
+                    </div>
+                    <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="row3">
+                <h2>Website<span> Feedback </span></h2>
+                <div class="inside">
+                    <img class="contactsvg" src="{%static 'images/contactsvg.svg' %}" alt="contact" />
+                    <div class="fill" data-aos="zoom-in" data-aos-duration="2000">
+                        <div class="formfill">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <!-- <label for="">Firstname</label> -->
+                                <!-- <input type="text" class="inp1" id="fname" name="fname" placeholder=" enter first name"
+                                    Required /><br><br> -->
+                                <input class="inp1" id="name" name="username" type="text" placeholder="Enter your Name">
+                                <br><br>
+                                <!-- <label for="">Email</label> -->
+                                <input type="email" class="inp1" id="email" name="email" placeholder="Enter your Email"
+                                    Required /><br><br>
+                                <!-- <label for="subject">Subject</label> -->
+                                <textarea id="subject" class="inp1" name="feedback" placeholder="Write your Feedback.."
+                                    required></textarea><br><br>
+
+                                <button type="submit" class="btn" id="b1">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    <!-- <script>
+        // Add an event listener to the textarea to adjust its height as the content changes
+        document.querySelector('textarea').addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    </script> -->
+    <!-- Include the Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-fPjGzQKVYPnCJkdWEmXvJfNOflO2L0TtnF+rgBdcfL17IYAfFQz06NoBrqlyE6b/"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

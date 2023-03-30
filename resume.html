@@ -1,0 +1,1236 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'style3.css' %}">
+    
+</head>
+<body id="mybody">
+
+
+<div class="holder" id="holder">
+
+
+    <div class="main_cont" id="main_CONT">
+        {% if resume %}
+        <div class="side-div" id="side">
+            <div class="imgdiv">
+                <img class="img" src="{{ resume.userimg.url }}">
+            </div>
+            <div class="namediv">
+                <p id="parag1" class="name">{{resume.username}}</p>
+            </div>
+            <div class="cont_div">
+                <div class="svgdiv1">
+                    <svg class="svg-icon1" viewBox="0 0 20 20">
+                        <path d="M13.372,1.781H6.628c-0.696,0-1.265,0.569-1.265,1.265v13.91c0,0.695,0.569,1.265,1.265,1.265h6.744c0.695,0,1.265-0.569,1.265-1.265V3.045C14.637,2.35,14.067,1.781,13.372,1.781 M13.794,16.955c0,0.228-0.194,0.421-0.422,0.421H6.628c-0.228,0-0.421-0.193-0.421-0.421v-0.843h7.587V16.955z M13.794,15.269H6.207V4.731h7.587V15.269z M13.794,3.888H6.207V3.045c0-0.228,0.194-0.421,0.421-0.421h6.744c0.228,0,0.422,0.194,0.422,0.421V3.888z"></path>
+                    </svg>
+                    <svg class="svg-icon2" viewBox="0 0 20 20">
+                        <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+                    </svg>
+                    <svg class="svg-icon3" viewBox="0 0 20 20">
+                        <path d="M10,1.375c-3.17,0-5.75,2.548-5.75,5.682c0,6.685,5.259,11.276,5.483,11.469c0.152,0.132,0.382,0.132,0.534,0c0.224-0.193,5.481-4.784,5.483-11.469C15.75,3.923,13.171,1.375,10,1.375 M10,17.653c-1.064-1.024-4.929-5.127-4.929-10.596c0-2.68,2.212-4.861,4.929-4.861s4.929,2.181,4.929,4.861C14.927,12.518,11.063,16.627,10,17.653 M10,3.839c-1.815,0-3.286,1.47-3.286,3.286s1.47,3.286,3.286,3.286s3.286-1.47,3.286-3.286S11.815,3.839,10,3.839 M10,9.589c-1.359,0-2.464-1.105-2.464-2.464S8.641,4.661,10,4.661s2.464,1.105,2.464,2.464S11.359,9.589,10,9.589"></path>
+                    </svg> 
+                </div>
+                <div class="pdiv">
+                <p class="phone" id="parag2">{{resume.usernumber}}</p>
+                </div>
+                <div class="email">
+                    <p class="em" id="parag3">{{resume.useremail}}</p>
+                </div>
+                <div class="address">
+                    <p class="padd" id="parag4">{{resume.useraddress}}</p>
+                </div>
+                <div class="languages">
+                    <div class="hd">
+                        <h3>languages</h3>
+                    </div>
+                    <p class="lang" id="parag5">{{resume.userlang}}</p>
+                </div>
+                <div class="hobbies">
+                    <div class="hobbie"><h3 class="hobi">Hobbies</h3></div>
+                    <p class="hbs" id="parag6">{{resume.userhobbies}}</p>
+
+                </div>
+
+            </div>
+           
+
+        </div>
+        <div class="side-2div">
+            <h3 class="h12"><div class="svdiv1"><svg class="svg-icon12" viewBox="0 0 20 20">
+                <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+            </svg></div>personal profile</h3><hr class="hr">
+            <p class="p12" id="parag7">{{resume.userprofile}}</p>
+        </div>
+
+
+        <div class="side-3div">
+            <h3 class="h12">Achievement</h3><div class="svdiv2"><svg class="svg-icon13" viewBox="0 0 20 20">
+                <path d="M15.94,10.179l-2.437-0.325l1.62-7.379c0.047-0.235-0.132-0.458-0.372-0.458H5.25c-0.241,0-0.42,0.223-0.373,0.458l1.634,7.376L4.06,10.179c-0.312,0.041-0.446,0.425-0.214,0.649l2.864,2.759l-0.724,3.947c-0.058,0.315,0.277,0.554,0.559,0.401l3.457-1.916l3.456,1.916c-0.419-0.238,0.56,0.439,0.56-0.401l-0.725-3.947l2.863-2.759C16.388,10.604,16.254,10.22,15.94,10.179M10.381,2.778h3.902l-1.536,6.977L12.036,9.66l-1.655-3.546V2.778z M5.717,2.778h3.903v3.335L7.965,9.66L7.268,9.753L5.717,2.778zM12.618,13.182c-0.092,0.088-0.134,0.217-0.11,0.343l0.615,3.356l-2.938-1.629c-0.057-0.03-0.122-0.048-0.184-0.048c-0.063,0-0.128,0.018-0.185,0.048l-2.938,1.629l0.616-3.356c0.022-0.126-0.019-0.255-0.11-0.343l-2.441-2.354l3.329-0.441c0.128-0.017,0.24-0.099,0.295-0.215l1.435-3.073l1.435,3.073c0.055,0.116,0.167,0.198,0.294,0.215l3.329,0.441L12.618,13.182z"></path></svg></div><hr class="hr">
+            <p class="p12" id="parag8">{{resume.userachieve}}</p>
+        </div>
+
+        <div class="side-4div">
+            <h3 class="h12">Education</h3><div class="svdiv3"><svg class="svg-icon14" viewBox="0 0 20 20">
+                <path d="M8.627,7.885C8.499,8.388,7.873,8.101,8.13,8.177L4.12,7.143c-0.218-0.057-0.351-0.28-0.293-0.498c0.057-0.218,0.279-0.351,0.497-0.294l4.011,1.037C8.552,7.444,8.685,7.667,8.627,7.885 M8.334,10.123L4.323,9.086C4.105,9.031,3.883,9.162,3.826,9.38C3.769,9.598,3.901,9.82,4.12,9.877l4.01,1.037c-0.262-0.062,0.373,0.192,0.497-0.294C8.685,10.401,8.552,10.18,8.334,10.123 M7.131,12.507L4.323,11.78c-0.218-0.057-0.44,0.076-0.497,0.295c-0.057,0.218,0.075,0.439,0.293,0.495l2.809,0.726c-0.265-0.062,0.37,0.193,0.495-0.293C7.48,12.784,7.35,12.562,7.131,12.507M18.159,3.677v10.701c0,0.186-0.126,0.348-0.306,0.393l-7.755,1.948c-0.07,0.016-0.134,0.016-0.204,0l-7.748-1.948c-0.179-0.045-0.306-0.207-0.306-0.393V3.677c0-0.267,0.249-0.461,0.509-0.396l7.646,1.921l7.654-1.921C17.91,3.216,18.159,3.41,18.159,3.677 M9.589,5.939L2.656,4.203v9.857l6.933,1.737V5.939z M17.344,4.203l-6.939,1.736v9.859l6.939-1.737V4.203z M16.168,6.645c-0.058-0.218-0.279-0.351-0.498-0.294l-4.011,1.037c-0.218,0.057-0.351,0.28-0.293,0.498c0.128,0.503,0.755,0.216,0.498,0.292l4.009-1.034C16.092,7.085,16.225,6.863,16.168,6.645 M16.168,9.38c-0.058-0.218-0.279-0.349-0.498-0.294l-4.011,1.036c-0.218,0.057-0.351,0.279-0.293,0.498c0.124,0.486,0.759,0.232,0.498,0.294l4.009-1.037C16.092,9.82,16.225,9.598,16.168,9.38 M14.963,12.385c-0.055-0.219-0.276-0.35-0.495-0.294l-2.809,0.726c-0.218,0.056-0.351,0.279-0.293,0.496c0.127,0.506,0.755,0.218,0.498,0.293l2.807-0.723C14.89,12.825,15.021,12.603,14.963,12.385"></path>
+            </svg></div><hr class="hr">
+            <p class="p12" id="parag9">{{resume.userquali}}</p>
+
+        </div>
+
+        <div class="side-4div">
+            <h3 class="h12">skills/projects</h3><div class="svdiv4"><svg class="svg-icon15" viewBox="0 0 20 20">
+                <path d="M17.283,5.549h-5.26V4.335c0-0.222-0.183-0.404-0.404-0.404H8.381c-0.222,0-0.404,0.182-0.404,0.404v1.214h-5.26c-0.223,0-0.405,0.182-0.405,0.405v9.71c0,0.223,0.182,0.405,0.405,0.405h14.566c0.223,0,0.404-0.183,0.404-0.405v-9.71C17.688,5.731,17.506,5.549,17.283,5.549 M8.786,4.74h2.428v0.809H8.786V4.74z M16.879,15.26H3.122v-4.046h5.665v1.201c0,0.223,0.182,0.404,0.405,0.404h1.618c0.222,0,0.405-0.182,0.405-0.404v-1.201h5.665V15.26z M9.595,9.583h0.81v2.428h-0.81V9.583zM16.879,10.405h-5.665V9.19c0-0.222-0.183-0.405-0.405-0.405H9.191c-0.223,0-0.405,0.183-0.405,0.405v1.215H3.122V6.358h13.757V10.405z"></path>
+            </svg></div><hr class="hr">
+            <p class="p12" id="parag10">{{resume.userproject}}</p>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+
+
+
+
+    <div class="nd" id="nd11">
+        <div class="resnamediv">
+            <div class="resimgdiv">
+                <div>
+                    
+                </div>
+               
+                
+            </div>
+            <div class="namedivs" id="ptcolor1">
+                <p class="username" id="pp1">{{resume.username}}</p>
+    
+            </div>
+            <div class="useremail" id="ptcolor2">
+                <p class="eml" id="pp2">{{resume.useremail}}</p>
+    
+            </div>
+            <div class="useraddress" id="ptcolor3">
+                <p class="adrs" id="pp3">{{resume.useraddress}}</p>
+    
+            </div>
+    
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor4">HOBBIES</div>
+            <p class="mypr" id="pp4">{{resume.userhobbies}}</p>
+
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor5">LANGUAGES KNOWN</div>
+            <p class="mypr" id="pp5">{{resume.userlang}}</p>
+
+        </div>
+        <div class="hobb" >
+            <div class="hd1" id="ptcolor6">PERSONAL PROFILE</div>
+            <p class="mypr" id="pp6">{{resume.userprofile}}</p>
+
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor7">EDUCATION</div>
+            <p class="mypr" id="pp7">{{resume.userquali}}</p>
+
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor8">ACHIEVEMETS</div>
+            <p class="mypr" id="pp8">{{resume.userachieve}}</p>
+
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor9">SKILLS/PROJECTS</div>
+            <p class="mypr" id="pp9">{{resume.userproject}}</p>
+
+        </div>
+        <div class="hobb">
+            <div class="hd1" id="ptcolor10"><p id="pp10">{{resume.usernumber}}</p></div>
+            
+        </div>
+
+        
+        
+        
+    </div>
+
+
+    <div class="nd2" id="nd21">
+        <div class="mmdiv">
+            <div class="userimdiv">
+                <img  class="img22" src="{{ resume.userimg.url }}">
+
+            </div>
+            <div class="usnamed" id="mv1">
+                <p class="up" id="par1">{{resume.username}}</p>
+
+            </div>
+            <div class="usnamed1" id="mv2">
+                <p class="up" id="par2">{{resume.useremail}}</p>
+
+            </div>
+
+        </div>
+
+        <div class="hbss" id="mv3">
+            <h3>HOBBIES</h3>
+            <p class="up1" id="par3">{{resume.userhobbies}}</p>
+
+        </div>
+
+
+        <div class="hbss1" id="mv4">
+            <h3 class="hh1">LANGUAGES</h3>
+            <p class="up1" id="par4">{{resume.userlang}}</p>
+
+        </div>
+
+        <div class="hbss2" id="mv5">
+            <h3>PERSONAL PROFILE</h3>
+            <p class="up1" id="par5">{{resume.userprofile}}</p>
+
+        </div>
+
+        <div class="hbss1" id="mv6">
+            <h3 class="hh1">ACHIEVEMENTS</h3>
+            <p class="up1" id="par5">{{resume.userachieve}}</p>
+
+        </div>
+
+        <div class="hbss2" id="mv7">
+            <h3>EDUCATION</h3>
+            <p class="up1" id="par6">{{resume.userquali}}</p>
+
+        </div>
+
+        <div class="hbss1" id="mv8">
+            <h3 class="hh1">SKILLS/PROJECT</h3>
+            <p class="up1" id="par7">{{resume.userproject}}</p>
+
+        </div>
+
+        <div class="hgs" >
+            <div class="pnu" id="mv9">
+                <p id="par8">contact:8197766717</p>
+                <p class="pgs" id="par9">{{resume.useraddress}}</p>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="nd3" id="nd22">
+        <div class="mainname" id="mainname">
+            <div class="myn"><h1>{{resume.username}}</h1></div>
+
+        </div>
+
+
+        <div class="sideinfo">
+            <div class="contactinfos">
+                <h4 class="mco">{{resume.usernumber}}</h4>
+                <h4 class="mco1">{{resume.useremail}}</h4>
+                <h4 class="mco1">{{ resume.useraddress }} </h4>
+            </div>
+
+
+            <div class="contactinfos1">
+                <div>
+                    <h3 class="hbv">hobbies</h3>
+                    <p class="mparas" id="prop1">{{resume.userhobbies}}</p>
+                </div>
+            </div> 
+
+            <div class="contactinfos1">
+                <div>
+                    <h3 class="hbv">languages</h3>
+                    <p class="mparas" id="prop2">{{resume.userlang}}</p>
+                </div>
+            </div> 
+            <div class="svgscpy">
+                <img  class="svgscpy"src="{%static 'images/resimgs.svg'%}">
+
+            </div>
+
+            
+
+            <div class="rightdiv">
+                <div>
+                    <h3 class="prodiv">personal profile</h3>
+                    <p class="perd" id="prop3">{{resume.userprofile}}</p>
+
+                </div>
+
+            </div>
+
+            <div class="rightdiv1">
+                <div>
+                    <h3 class="prodiv">achievements</h3>
+                    <p class="perd" id="prop4">{{resume.userachieve}}</p>
+
+                </div>
+
+            </div>
+
+            <div class="rightdiv1">
+                <div>
+                    <h3 class="prodiv">education</h3>
+                    <p class="perd" id="prop5">{{resume.userquali}}</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rightdiv1">
+                <div>
+                    <h3 class="prodiv">skills/projects</h3>
+                    <p class="perd" id="prop6">{{resume.userproject}}</p>
+
+                </div>
+
+            </div>
+            
+        </div> 
+
+        
+
+
+
+
+
+
+        
+
+
+    </div>
+  
+
+
+
+
+    
+</div>
+
+
+
+
+
+<div class="btnpos">
+    <button onclick="myprint()" id="thisbt" class="printpdfs">download</button>
+</div>
+
+
+
+    <div class="plt" id="plt">
+        <div class="svgpt">
+            <div class="p1" onclick="MainPallet1()"></div>
+            <div class="p2" onclick="MainPallet2()"></div>
+            <div class="p3" onclick="MainPallet3()"></div>
+            <div class="p4" onclick="MainPallet4()"></div>
+            <div class="p5" onclick="MainPallet5()"></div>
+            <div class="p6" onclick="MainPallet6()"></div>
+            <div class="p7" onclick="MainPallet7()"></div>
+            <div class="p8" onclick="MainPallet8()"></div>
+            <div class="p9" onclick="MainPallet9()"></div>
+        </div>
+        <div class="myb">
+            <button class="but12" onclick="hide1()">Done</button>
+        </div>
+    </div>
+
+
+    <div class="sidebardiv" id="side_bar_div">
+        <div class="colorPalet">
+            <button class="tbtn1" onclick="myfunc1()"></button>
+            <button class="tbtn2" onclick="myfunc2()"></button>
+            <button class="tbtn3" onclick="myfunc3()"></button>
+            <button class="tbtn4" onclick="myfunc4()"></button>
+            <button class="tbtn5" onclick="myfunc5()"></button>
+            <button class="tbtn6" onclick="myfunc6()"></button>
+            <button class="tbtn7" onclick="myfunc7()"></button>
+            <button class="tbtn8" onclick="myfunc8()"></button>
+            <button class="tbtn9" onclick="myfunc9()"></button>
+            <button class="tbtn10" onclick="myfunc10()"></button>
+            <button class="tbtn11" onclick="myfunc11()"></button>
+            <button class="tbtn12" onclick="myfunc12()"></button>
+            <button class="tbtn13" onclick="myfunc13()"></button>
+            <button class="tbtn14" onclick="myfunc14()"></button>
+            <button class="tbtn15" onclick="myfunc15()"></button>
+            <button class="tbtn16" onclick="myfunc16()"></button>
+            <button class="tbtn17" onclick="myfunc17()"></button>
+            <button class="tbtn18" onclick="myfunc18()"></button>
+            <button class="tbtn19" onclick="myfunc19()"></button>
+            <button class="tbtn20" onclick="myfunc20()"></button>
+            <hr class="myhr">
+            <button type="button" class="mybt" onclick="myfunc21()">serif</button>
+            <button type="button" class="mybt" onclick="myfunc22()">sans-serif</button>
+            <button type="button" class="mybt" onclick="myfunc23()">cursive</button>
+            <button type="button" class="mybt" onclick="myfunc24()">Verdana</button>
+            <div class="mainbtn">
+                <button class="but12" onclick="hide()">Done</button>
+            </div>
+           
+        </div>
+
+    </div>  
+
+
+    <div class="templateselector" id="templateselector" >
+        <button class="mybt" onclick="rashmith1()">template1</button>
+        <button class="mybt" onclick="rashmith2()">template2</button>
+        <button class="mybt" onclick="rashmith3()">template3</button>
+        <button class="mybt"  onclick="rashmith4()">template4</button>
+        <div class="done">
+       </div>  
+    </div>
+
+    <script src="{% static 'MyScript.js' %}"></script>
+
+<script>
+    function myfunc1(){
+    document.getElementById("side").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor1").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor2").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor3").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor4").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor5").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor6").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor7").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor8").style.backgroundColor="#af8e09";
+    document.getElementById("ptcolor9").style.backgroundColor="#af8e09";
+    document.getElementById("mv1").style.backgroundColor="#af8e09";
+    document.getElementById("mv1").style.backgroundColor="#af8e09";
+    document.getElementById("mv2").style.backgroundColor="#af8e09";
+    document.getElementById("mv3").style.backgroundColor="#af8e09";
+    document.getElementById("mv4").style.backgroundColor="#af8e09";
+    document.getElementById("mv5").style.backgroundColor="#af8e09";
+    document.getElementById("mv6").style.backgroundColor="#af8e09";
+    document.getElementById("mv7").style.backgroundColor="#af8e09";
+    document.getElementById("mv8").style.backgroundColor="#af8e09";
+    document.getElementById("mv9").style.backgroundColor="#af8e09";
+    document.getElementById("mainname").style.backgroundColor="#af8e09";
+
+}
+function myfunc2(){
+    document.getElementById("side").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor1").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor2").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor3").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor4").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor5").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor6").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor7").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor8").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor9").style.backgroundColor="#2980b9";
+    document.getElementById("ptcolor10").style.backgroundColor="#2980b9";
+    document.getElementById("mv1").style.backgroundColor="#2980b9";
+    document.getElementById("mv1").style.backgroundColor="#2980b9";
+    document.getElementById("mv2").style.backgroundColor="#2980b9";
+    document.getElementById("mv3").style.backgroundColor="#2980b9";
+    document.getElementById("mv4").style.backgroundColor="#2980b9";
+    document.getElementById("mv5").style.backgroundColor="#2980b9";
+    document.getElementById("mv6").style.backgroundColor="#2980b9";
+    document.getElementById("mv7").style.backgroundColor="#2980b9";
+    document.getElementById("mv8").style.backgroundColor="#2980b9";
+    document.getElementById("mv9").style.backgroundColor="#2980b9";
+    document.getElementById("mainname").style.backgroundColor="#2980b9";
+}
+function myfunc3(){
+    document.getElementById("side").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor1").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor2").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor3").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor4").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor5").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor6").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor7").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor8").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor9").style.backgroundColor="#9b59b6";
+    document.getElementById("ptcolor10").style.backgroundColor="#9b59b6";
+    document.getElementById("mv1").style.backgroundColor="#9b59b6";
+    document.getElementById("mv1").style.backgroundColor="#9b59b6";
+    document.getElementById("mv2").style.backgroundColor="#9b59b6";
+    document.getElementById("mv3").style.backgroundColor="#9b59b6";
+    document.getElementById("mv4").style.backgroundColor="#9b59b6";
+    document.getElementById("mv5").style.backgroundColor="#9b59b6";
+    document.getElementById("mv6").style.backgroundColor="#9b59b6";
+    document.getElementById("mv7").style.backgroundColor="#9b59b6";
+    document.getElementById("mv8").style.backgroundColor="#9b59b6";
+    document.getElementById("mv9").style.backgroundColor="#9b59b6";
+    document.getElementById("mainname").style.backgroundColor="#9b59b6";
+    
+}
+function myfunc4(){
+    document.getElementById("side").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor1").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor2").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor3").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor4").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor5").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor6").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor7").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor8").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor9").style.backgroundColor="#34495e";
+    document.getElementById("ptcolor10").style.backgroundColor="#34495e";
+    document.getElementById("mv1").style.backgroundColor="#34495e";
+    document.getElementById("mv1").style.backgroundColor="#34495e";
+    document.getElementById("mv2").style.backgroundColor="#34495e";
+    document.getElementById("mv3").style.backgroundColor="#34495e";
+    document.getElementById("mv4").style.backgroundColor="#34495e";
+    document.getElementById("mv5").style.backgroundColor="#34495e";
+    document.getElementById("mv6").style.backgroundColor="#34495e";
+    document.getElementById("mv7").style.backgroundColor="#34495e";
+    document.getElementById("mv8").style.backgroundColor="#34495e";
+    document.getElementById("mv9").style.backgroundColor="#34495e";
+    document.getElementById("mainname").style.backgroundColor="#34495e";
+}
+function myfunc5(){
+    document.getElementById("side").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor1").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor2").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor3").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor4").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor5").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor6").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor7").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor8").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor9").style.backgroundColor="#1abc9c";
+    document.getElementById("ptcolor10").style.backgroundColor="#1abc9c";
+    document.getElementById("mv1").style.backgroundColor="#1abc9c";
+    document.getElementById("mv1").style.backgroundColor="#1abc9c";
+    document.getElementById("mv2").style.backgroundColor="#1abc9c";
+    document.getElementById("mv3").style.backgroundColor="#1abc9c";
+    document.getElementById("mv4").style.backgroundColor="#1abc9c";
+    document.getElementById("mv5").style.backgroundColor="#1abc9c";
+    document.getElementById("mv6").style.backgroundColor="#1abc9c";
+    document.getElementById("mv7").style.backgroundColor="#1abc9c";
+    document.getElementById("mv8").style.backgroundColor="#1abc9c";
+    document.getElementById("mv9").style.backgroundColor="#1abc9c";
+    document.getElementById("mainname").style.backgroundColor="#1abc9c";
+}
+function myfunc6(){
+    document.getElementById("side").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor1").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor2").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor3").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor4").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor5").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor6").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor7").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor8").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor9").style.backgroundColor="#27ae60";
+    document.getElementById("ptcolor10").style.backgroundColor="#27ae60";
+    document.getElementById("mv1").style.backgroundColor="#27ae60";
+    document.getElementById("mv1").style.backgroundColor="#27ae60";
+    document.getElementById("mv2").style.backgroundColor="#27ae60";
+    document.getElementById("mv3").style.backgroundColor="#27ae60";
+    document.getElementById("mv4").style.backgroundColor="#27ae60";
+    document.getElementById("mv5").style.backgroundColor="#27ae60";
+    document.getElementById("mv6").style.backgroundColor="#27ae60";
+    document.getElementById("mv7").style.backgroundColor="#27ae60";
+    document.getElementById("mv8").style.backgroundColor="#27ae60";
+    document.getElementById("mv9").style.backgroundColor="#27ae60";
+    document.getElementById("mainname").style.backgroundColor="#27ae60";
+}
+function myfunc7(){
+    document.getElementById("side").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor1").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor2").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor3").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor4").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor5").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor6").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor7").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor8").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor9").style.backgroundColor="#511e19";
+    document.getElementById("ptcolor10").style.backgroundColor="#511e19";
+    document.getElementById("mv1").style.backgroundColor="#511e19";
+    document.getElementById("mv1").style.backgroundColor="#511e19";
+    document.getElementById("mv2").style.backgroundColor="#511e19";
+    document.getElementById("mv3").style.backgroundColor="#511e19";
+    document.getElementById("mv4").style.backgroundColor="#511e19";
+    document.getElementById("mv5").style.backgroundColor="#511e19";
+    document.getElementById("mv6").style.backgroundColor="#511e19";
+    document.getElementById("mv7").style.backgroundColor="#511e19";
+    document.getElementById("mv8").style.backgroundColor="#511e19";
+    document.getElementById("mv9").style.backgroundColor="#511e19";
+    document.getElementById("mainname").style.backgroundColor="#511e19";
+    
+}
+function myfunc8(){
+    document.getElementById("side").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor1").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor2").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor3").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor4").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor5").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor6").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor7").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor8").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor9").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor10").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv2").style.backgroundColor="#22a6b3";
+    document.getElementById("mv3").style.backgroundColor="#22a6b3";
+    document.getElementById("mv4").style.backgroundColor="#22a6b3";
+    document.getElementById("mv5").style.backgroundColor="#22a6b3";
+    document.getElementById("mv6").style.backgroundColor="#22a6b3";
+    document.getElementById("mv7").style.backgroundColor="#22a6b3";
+    document.getElementById("mv8").style.backgroundColor="#22a6b3";
+    document.getElementById("mv9").style.backgroundColor="#22a6b3";
+    document.getElementById("mainname").style.backgroundColor="#22a6b3";
+}
+function myfunc9(){
+    document.getElementById("side").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor1").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor2").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor3").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor4").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor5").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor6").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor7").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor8").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor9").style.backgroundColor="#30336b";
+    document.getElementById("ptcolor10").style.backgroundColor="#30336b";
+    document.getElementById("mv1").style.backgroundColor="#30336b";
+    document.getElementById("mv1").style.backgroundColor="#30336b";
+    document.getElementById("mv2").style.backgroundColor="#30336b";
+    document.getElementById("mv3").style.backgroundColor="#30336b";
+    document.getElementById("mv4").style.backgroundColor="#30336b";
+    document.getElementById("mv5").style.backgroundColor="#30336b";
+    document.getElementById("mv6").style.backgroundColor="#30336b";
+    document.getElementById("mv7").style.backgroundColor="#30336b";
+    document.getElementById("mv8").style.backgroundColor="#30336b";
+    document.getElementById("mv9").style.backgroundColor="#30336b";
+    document.getElementById("mainname").style.backgroundColor="#30336b";
+}
+function myfunc10(){
+    document.getElementById("side").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor1").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor2").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor3").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor4").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor5").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor6").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor7").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor8").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor9").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor10").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv2").style.backgroundColor="#22a6b3";
+    document.getElementById("mv3").style.backgroundColor="#22a6b3";
+    document.getElementById("mv4").style.backgroundColor="#22a6b3";
+    document.getElementById("mv5").style.backgroundColor="#22a6b3";
+    document.getElementById("mv6").style.backgroundColor="#22a6b3";
+    document.getElementById("mv7").style.backgroundColor="#22a6b3";
+    document.getElementById("mv8").style.backgroundColor="#22a6b3";
+    document.getElementById("mv9").style.backgroundColor="#22a6b3";
+    document.getElementById("mainname").style.backgroundColor="#22a6b3";
+}
+function myfunc11(){
+    document.getElementById("side").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor1").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor2").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor3").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor4").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor5").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor6").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor7").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor8").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor9").style.backgroundColor="#f6e58d";
+    document.getElementById("ptcolor10").style.backgroundColor="#f6e58d";
+    document.getElementById("mv1").style.backgroundColor="#f6e58d";
+    document.getElementById("mv1").style.backgroundColor="#f6e58d";
+    document.getElementById("mv2").style.backgroundColor="#f6e58d";
+    document.getElementById("mv3").style.backgroundColor="#f6e58d";
+    document.getElementById("mv4").style.backgroundColor="#f6e58d";
+    document.getElementById("mv5").style.backgroundColor="#f6e58d";
+    document.getElementById("mv6").style.backgroundColor="#f6e58d";
+    document.getElementById("mv7").style.backgroundColor="#f6e58d";
+    document.getElementById("mv8").style.backgroundColor="#f6e58d";
+    document.getElementById("mv9").style.backgroundColor="#f6e58d";
+    document.getElementById("mainname").style.backgroundColor="#f6e58d";
+}
+function myfunc12(){
+    document.getElementById("side").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor1").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor2").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor3").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor4").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor5").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor6").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor7").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor8").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor9").style.backgroundColor="#ffbe76";
+    document.getElementById("ptcolor10").style.backgroundColor="#ffbe76";
+    document.getElementById("mv1").style.backgroundColor="#ffbe76";
+    document.getElementById("mv1").style.backgroundColor="#ffbe76";
+    document.getElementById("mv2").style.backgroundColor="#ffbe76";
+    document.getElementById("mv3").style.backgroundColor="#ffbe76";
+    document.getElementById("mv4").style.backgroundColor="#ffbe76";
+    document.getElementById("mv5").style.backgroundColor="#ffbe76";
+    document.getElementById("mv6").style.backgroundColor="#ffbe76";
+    document.getElementById("mv7").style.backgroundColor="#ffbe76";
+    document.getElementById("mv8").style.backgroundColor="#ffbe76";
+    document.getElementById("mv9").style.backgroundColor="#ffbe76";
+    document.getElementById("mainname").style.backgroundColor="#ffbe76";
+}
+function myfunc13(){
+    document.getElementById("side").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor1").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor2").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor3").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor4").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor5").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor6").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor7").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor8").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor9").style.backgroundColor="#535c68";
+    document.getElementById("ptcolor10").style.backgroundColor="#535c68";
+    document.getElementById("mv1").style.backgroundColor="#535c68";
+    document.getElementById("mv1").style.backgroundColor="#535c68";
+    document.getElementById("mv2").style.backgroundColor="#535c68";
+    document.getElementById("mv3").style.backgroundColor="#535c68";
+    document.getElementById("mv4").style.backgroundColor="#535c68";
+    document.getElementById("mv5").style.backgroundColor="#535c68";
+    document.getElementById("mv6").style.backgroundColor="#535c68";
+    document.getElementById("mv7").style.backgroundColor="#535c68";
+    document.getElementById("mv8").style.backgroundColor="#535c68";
+    document.getElementById("mv9").style.backgroundColor="#535c68";
+    document.getElementById("mainname").style.backgroundColor="#535c68";
+}
+function myfunc14(){
+    document.getElementById("side").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor1").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor2").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor3").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor4").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor5").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor6").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor7").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor8").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor9").style.backgroundColor="#0f3535";
+    document.getElementById("ptcolor10").style.backgroundColor="#0f3535";
+    document.getElementById("mv1").style.backgroundColor="#0f3535";
+    document.getElementById("mv1").style.backgroundColor="#0f3535";
+    document.getElementById("mv2").style.backgroundColor="#0f3535";
+    document.getElementById("mv3").style.backgroundColor="#0f3535";
+    document.getElementById("mv4").style.backgroundColor="#0f3535";
+    document.getElementById("mv5").style.backgroundColor="#0f3535";
+    document.getElementById("mv6").style.backgroundColor="#0f3535";
+    document.getElementById("mv7").style.backgroundColor="#0f3535";
+    document.getElementById("mv8").style.backgroundColor="#0f3535";
+    document.getElementById("mv9").style.backgroundColor="#0f3535";
+    document.getElementById("mainname").style.backgroundColor="#0f3535";
+}
+function myfunc15(){
+    document.getElementById("side").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor1").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor2").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor3").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor4").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor5").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor6").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor7").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor8").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor9").style.backgroundColor="#6c5ce7";
+    document.getElementById("ptcolor10").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv1").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv1").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv2").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv3").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv4").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv5").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv6").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv7").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv8").style.backgroundColor="#6c5ce7";
+    document.getElementById("mv9").style.backgroundColor="#6c5ce7";
+    document.getElementById("mainname").style.backgroundColor="#6c5ce7";
+}
+function myfunc16(){
+    document.getElementById("side").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor1").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor2").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor3").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor4").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor5").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor6").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor7").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor8").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor9").style.backgroundColor="#a29bfe";
+    document.getElementById("ptcolor10").style.backgroundColor="#a29bfe";
+    document.getElementById("mv1").style.backgroundColor="#a29bfe";
+    document.getElementById("mv1").style.backgroundColor="#a29bfe";
+    document.getElementById("mv2").style.backgroundColor="#a29bfe";
+    document.getElementById("mv3").style.backgroundColor="#a29bfe";
+    document.getElementById("mv4").style.backgroundColor="#a29bfe";
+    document.getElementById("mv5").style.backgroundColor="#a29bfe";
+    document.getElementById("mv6").style.backgroundColor="#a29bfe";
+    document.getElementById("mv7").style.backgroundColor="#a29bfe";
+    document.getElementById("mv8").style.backgroundColor="#a29bfe";
+    document.getElementById("mv9").style.backgroundColor="#a29bfe";
+    document.getElementById("mainname").style.backgroundColor="#a29bfe";
+}
+function myfunc17(){
+    document.getElementById("side").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor1").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor2").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor3").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor4").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor5").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor6").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor7").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor8").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor9").style.backgroundColor="#130f40";
+    document.getElementById("ptcolor10").style.backgroundColor="#130f40";
+    document.getElementById("mv1").style.backgroundColor="#130f40";
+    document.getElementById("mv1").style.backgroundColor="#130f40";
+    document.getElementById("mv2").style.backgroundColor="#130f40";
+    document.getElementById("mv3").style.backgroundColor="#130f40";
+    document.getElementById("mv4").style.backgroundColor="#130f40";
+    document.getElementById("mv5").style.backgroundColor="#130f40";
+    document.getElementById("mv6").style.backgroundColor="#130f40";
+    document.getElementById("mv7").style.backgroundColor="#130f40";
+    document.getElementById("mv8").style.backgroundColor="#130f40";
+    document.getElementById("mv9").style.backgroundColor="#130f40";
+    document.getElementById("mainname").style.backgroundColor="#130f40";
+}
+function myfunc18(){
+    document.getElementById("side").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor1").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor2").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor3").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor4").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor5").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor6").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor7").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor8").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor9").style.backgroundColor="#95afc0";
+    document.getElementById("ptcolor10").style.backgroundColor="#95afc0";
+    document.getElementById("mv1").style.backgroundColor="#95afc0";
+    document.getElementById("mv1").style.backgroundColor="#95afc0";
+    document.getElementById("mv2").style.backgroundColor="#95afc0";
+    document.getElementById("mv3").style.backgroundColor="#95afc0";
+    document.getElementById("mv4").style.backgroundColor="#95afc0";
+    document.getElementById("mv5").style.backgroundColor="#95afc0";
+    document.getElementById("mv6").style.backgroundColor="#95afc0";
+    document.getElementById("mv7").style.backgroundColor="#95afc0";
+    document.getElementById("mv8").style.backgroundColor="#95afc0";
+    document.getElementById("mv9").style.backgroundColor="#95afc0";
+    document.getElementById("mainname").style.backgroundColor="#95afc0";
+    
+
+}
+function myfunc19(){
+    document.getElementById("side").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor1").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor2").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor3").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor4").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor5").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor6").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor7").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor8").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor9").style.backgroundColor="#22a6b3";
+    document.getElementById("ptcolor10").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv1").style.backgroundColor="#22a6b3";
+    document.getElementById("mv2").style.backgroundColor="#22a6b3";
+    document.getElementById("mv3").style.backgroundColor="#22a6b3";
+    document.getElementById("mv4").style.backgroundColor="#22a6b3";
+    document.getElementById("mv5").style.backgroundColor="#22a6b3";
+    document.getElementById("mv6").style.backgroundColor="#22a6b3";
+    document.getElementById("mv7").style.backgroundColor="#22a6b3";
+    document.getElementById("mv8").style.backgroundColor="#22a6b3";
+    document.getElementById("mv9").style.backgroundColor="#22a6b3";
+    document.getElementById("mainname").style.backgroundColor="#22a6b3";
+    
+}
+function myfunc20(){
+    document.getElementById("side").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor1").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor2").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor3").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor4").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor5").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor6").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor7").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor8").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor9").style.backgroundColor="#6ab04c";
+    document.getElementById("ptcolor10").style.backgroundColor="#6ab04c";
+    document.getElementById("mv1").style.backgroundColor="#6ab04c";
+    document.getElementById("mv1").style.backgroundColor="#6ab04c";
+    document.getElementById("mv2").style.backgroundColor="#6ab04c";
+    document.getElementById("mv3").style.backgroundColor="#6ab04c";
+    document.getElementById("mv4").style.backgroundColor="#6ab04c";
+    document.getElementById("mv5").style.backgroundColor="#6ab04c";
+    document.getElementById("mv6").style.backgroundColor="#6ab04c";
+    document.getElementById("mv7").style.backgroundColor="#6ab04c";
+    document.getElementById("mv8").style.backgroundColor="#6ab04c";
+    document.getElementById("mv9").style.backgroundColor="#6ab04c";
+    document.getElementById("mainname").style.backgroundColor="#6ab04c";
+    
+}
+
+function myfunc21(){
+    document.getElementById("parag1").style.fontFamily="serif";
+    document.getElementById("parag2").style.fontFamily="serif";
+    document.getElementById("parag3").style.fontFamily="serif";
+    document.getElementById("parag4").style.fontFamily="serif";
+    document.getElementById("parag5").style.fontFamily="serif";
+    document.getElementById("parag6").style.fontFamily="serif";
+    document.getElementById("parag7").style.fontFamily="serif";
+    document.getElementById("parag8").style.fontFamily="serif";
+    document.getElementById("parag9").style.fontFamily="serif";
+    document.getElementById("parag10").style.fontFamily="serif";
+    document.getElementById("pp1").style.fontFamily="serif";
+    document.getElementById("pp2").style.fontFamily="serif";
+    document.getElementById("pp3").style.fontFamily="serif";
+    document.getElementById("pp4").style.fontFamily="serif";
+    document.getElementById("pp5").style.fontFamily="serif";
+    document.getElementById("pp6").style.fontFamily="serif";
+    document.getElementById("pp7").style.fontFamily="serif";
+    document.getElementById("pp8").style.fontFamily="serif";
+    document.getElementById("pp9").style.fontFamily="serif";
+    document.getElementById("pp10").style.fontFamily="serif";
+    document.getElementById("par1").style.fontFamily="serif";
+    document.getElementById("par2").style.fontFamily="serif";
+    document.getElementById("par3").style.fontFamily="serif";
+    document.getElementById("par4").style.fontFamily="serif";
+    document.getElementById("par5").style.fontFamily="serif";
+    document.getElementById("par6").style.fontFamily="serif";
+    document.getElementById("par7").style.fontFamily="serif";
+    document.getElementById("par8").style.fontFamily="serif";
+    document.getElementById("par9").style.fontFamily="serif";
+    document.getElementById("prop1").style.fontFamily="serif";
+    document.getElementById("prop2").style.fontFamily="serif";
+    document.getElementById("prop3").style.fontFamily="serif";
+    document.getElementById("prop4").style.fontFamily="serif";
+    document.getElementById("prop5").style.fontFamily="serif";
+    document.getElementById("prop6").style.fontFamily="serif";
+    
+    
+
+
+}
+
+function myfunc22(){
+    document.getElementById("parag1").style.fontFamily="sans-serif";
+    document.getElementById("parag2").style.fontFamily="sans-serif";
+    document.getElementById("parag3").style.fontFamily="sans-serif";
+    document.getElementById("parag4").style.fontFamily="sans-serif";
+    document.getElementById("parag5").style.fontFamily="sans-serif";
+    document.getElementById("parag6").style.fontFamily="sans-serif";
+    document.getElementById("parag7").style.fontFamily="sans-serif";
+    document.getElementById("parag8").style.fontFamily="sans-serif";
+    document.getElementById("parag9").style.fontFamily="sans-serif";
+    document.getElementById("parag10").style.fontFamily="sans-serif";
+    document.getElementById("pp1").style.fontFamily="sans-serif";
+    document.getElementById("pp2").style.fontFamily="sans-serif";
+    document.getElementById("pp3").style.fontFamily="sans-serif";
+    document.getElementById("pp4").style.fontFamily="sans-serif";
+    document.getElementById("pp5").style.fontFamily="sans-serif";
+    document.getElementById("pp6").style.fontFamily="sans-serif";
+    document.getElementById("pp7").style.fontFamily="sans-serif";
+    document.getElementById("pp8").style.fontFamily="sans-serif";
+    document.getElementById("pp9").style.fontFamily="sans-serif";
+    document.getElementById("pp10").style.fontFamily="sans-serif";
+    document.getElementById("par1").style.fontFamily="sans-serif";
+    document.getElementById("par2").style.fontFamily="sans-serif";
+    document.getElementById("par3").style.fontFamily="sans-serif";
+    document.getElementById("par4").style.fontFamily="sans-serif";
+    document.getElementById("par5").style.fontFamily="sans-serif";
+    document.getElementById("par6").style.fontFamily="sans-serif";
+    document.getElementById("par7").style.fontFamily="sans-serif";
+    document.getElementById("par8").style.fontFamily="sans-serif";
+    document.getElementById("par9").style.fontFamily="sans-serif";
+    document.getElementById("prop1").style.fontFamily="sans-serif";
+    document.getElementById("prop2").style.fontFamily="sans-serif";
+    document.getElementById("prop3").style.fontFamily="sans-serif";
+    document.getElementById("prop4").style.fontFamily="sans-serif";
+    document.getElementById("prop5").style.fontFamily="sans-serif";
+    document.getElementById("prop6").style.fontFamily="sans-serif";
+
+}
+function myfunc23()
+{
+    document.getElementById("parag1").style.fontFamily="cursive";
+    document.getElementById("parag2").style.fontFamily="cursive";
+    document.getElementById("parag3").style.fontFamily="cursive";
+    document.getElementById("parag4").style.fontFamily="cursive";
+    document.getElementById("parag5").style.fontFamily="cursive";
+    document.getElementById("parag6").style.fontFamily="cursive";
+    document.getElementById("parag7").style.fontFamily="cursive";
+    document.getElementById("parag8").style.fontFamily="cursive";
+    document.getElementById("parag9").style.fontFamily="cursive";
+    document.getElementById("parag10").style.fontFamily="cursive";
+    document.getElementById("pp1").style.fontFamily="cursive";
+    document.getElementById("pp2").style.fontFamily="cursive";
+    document.getElementById("pp3").style.fontFamily="cursive";
+    document.getElementById("pp4").style.fontFamily="cursive";
+    document.getElementById("pp5").style.fontFamily="cursive";
+    document.getElementById("pp6").style.fontFamily="cursive";
+    document.getElementById("pp7").style.fontFamily="cursive";
+    document.getElementById("pp8").style.fontFamily="cursive";
+    document.getElementById("pp9").style.fontFamily="cursive";
+    document.getElementById("pp10").style.fontFamily="cursive";
+    document.getElementById("par1").style.fontFamily="cursive";
+    document.getElementById("par2").style.fontFamily="cursive";
+    document.getElementById("par3").style.fontFamily="cursive";
+    document.getElementById("par4").style.fontFamily="cursive";
+    document.getElementById("par5").style.fontFamily="cursive";
+    document.getElementById("par6").style.fontFamily="cursive";
+    document.getElementById("par7").style.fontFamily="cursive";
+    document.getElementById("par8").style.fontFamily="cursive";
+    document.getElementById("par9").style.fontFamily="cursive";
+    document.getElementById("prop1").style.fontFamily="cursive";
+    document.getElementById("prop2").style.fontFamily="cursive";
+    document.getElementById("prop3").style.fontFamily="cursive";
+    document.getElementById("prop4").style.fontFamily="cursive";
+    document.getElementById("prop5").style.fontFamily="cursive";
+    document.getElementById("prop6").style.fontFamily="cursive";
+}
+function myfunc24(){
+    document.getElementById("parag1").style.fontFamily="Verdana";
+    document.getElementById("parag2").style.fontFamily="Verdana";
+    document.getElementById("parag3").style.fontFamily="Verdana";
+    document.getElementById("parag4").style.fontFamily="Verdana";
+    document.getElementById("parag5").style.fontFamily="Verdana";
+    document.getElementById("parag6").style.fontFamily="Verdana";
+    document.getElementById("parag7").style.fontFamily="Verdana";
+    document.getElementById("parag8").style.fontFamily="Verdana";
+    document.getElementById("parag9").style.fontFamily="Verdana";
+    document.getElementById("parag10").style.fontFamily="Verdana";
+    document.getElementById("pp1").style.fontFamily="Verdana";
+    document.getElementById("pp2").style.fontFamily="Verdana";
+    document.getElementById("pp3").style.fontFamily="Verdana";
+    document.getElementById("pp4").style.fontFamily="Verdana";
+    document.getElementById("pp5").style.fontFamily="Verdana";
+    document.getElementById("pp6").style.fontFamily="Verdana";
+    document.getElementById("pp7").style.fontFamily="Verdana";
+    document.getElementById("pp8").style.fontFamily="Verdana";
+    document.getElementById("pp9").style.fontFamily="Verdana";
+    document.getElementById("pp10").style.fontFamily="Verdana";
+    document.getElementById("par1").style.fontFamily="verdana";
+    document.getElementById("par2").style.fontFamily="verdana";
+    document.getElementById("par3").style.fontFamily="verdana";
+    document.getElementById("par4").style.fontFamily="verdana";
+    document.getElementById("par5").style.fontFamily="verdana";
+    document.getElementById("par6").style.fontFamily="verdana";
+    document.getElementById("par7").style.fontFamily="verdana";
+    document.getElementById("par8").style.fontFamily="verdana";
+    document.getElementById("par9").style.fontFamily="verdana";
+    document.getElementById("prop1").style.fontFamily="verdana";
+    document.getElementById("prop2").style.fontFamily="verdana";
+    document.getElementById("prop3").style.fontFamily="verdana";
+    document.getElementById("prop4").style.fontFamily="verdana";
+    document.getElementById("prop5").style.fontFamily="verdana";
+    document.getElementById("prop6").style.fontFamily="verdana";
+
+}
+
+function hide(){
+    document.getElementById("side_bar_div").style.display='none';
+    document.getElementById("templateselector").style.display='none';
+}
+
+function MainPallet1(){
+document.getElementById("main_CONT").style.backgroundImage = "url({%static 'images/o1.svg' %})";
+document.getElementById("nd11").style.backgroundImage= "url({%static 'images/o1.svg' %})";
+document.getElementById("nd21").style.backgroundImage= "url({%static 'images/o1.svg' %})";
+document.getElementById("nd22").style.backgroundImage= "url({%static 'images/o1.svg' %})";
+}
+function MainPallet2(){
+document.getElementById("main_CONT").style.backgroundImage = "url({%static 'images/o2.svg'%})";
+document.getElementById("nd11").style.backgroundImage= "url({%static 'images/o2.svg'%})";
+document.getElementById("nd21").style.backgroundImage= "url({%static 'images/o2.svg'%})";
+document.getElementById("nd22").style.backgroundImage= "url({%static 'images/o2.svg'%})";
+}
+function MainPallet3(){
+document.getElementById("main_CONT").style.backgroundImage ="url({%static 'images/o3.svg'%})";
+document.getElementById("nd11").style.backgroundImage = "url({%static 'images/o3.svg'%})";
+document.getElementById("nd21").style.backgroundImage = "url({%static 'images/o3.svg'%})";
+document.getElementById("nd22").style.backgroundImage= "url({%static 'images/o3.svg'%})";
+}
+function MainPallet4(){
+document.getElementById("main_CONT").style.backgroundImage =  "url({%static 'images/o4.svg'%})";
+document.getElementById("nd11").style.backgroundImage =  "url({%static 'images/o4.svg'%})";
+document.getElementById("nd21").style.backgroundImage =  "url({%static 'images/o4.svg'%})";
+document.getElementById("nd22").style.backgroundImage= "url({%static 'images/o4.svg'%})";
+}
+function MainPallet5(){
+document.getElementById("main_CONT").style.backgroundImage ="url({%static 'images/o5.svg'%})"; 
+document.getElementById("nd11").style.backgroundImage ="url({%static 'images/o5.svg'%})";
+document.getElementById("nd21").style.backgroundImage ="url({%static 'images/o5.svg'%})"; 
+document.getElementById("nd22").style.backgroundImage ="url({%static 'images/o5.svg'%})";
+}
+function MainPallet6(){
+document.getElementById("main_CONT").style.backgroundImage ="url({%static 'images/o6.svg'%})";
+document.getElementById("nd11").style.backgroundImage ="url({%static 'images/o6.svg'%})";
+document.getElementById("nd21").style.backgroundImage ="url({%static 'images/o6.svg'%})";
+document.getElementById("nd22").style.backgroundImage ="url({%static 'images/o6.svg'%})"; 
+}
+function MainPallet7(){
+document.getElementById("main_CONT").style.backgroundImage = "url({%static 'images/o7.svg'%})";
+document.getElementById("nd11").style.backgroundImage = "url({%static 'images/o7.svg'%})";
+document.getElementById("nd21").style.backgroundImage = "url({%static 'images/o7.svg'%})";
+document.getElementById("nd22").style.backgroundImage="url({%static 'images/o7.svg'%})";
+}
+function MainPallet8(){
+document.getElementById("main_CONT").style.backgroundImage =  "url({%static 'images/o8.svg'%})";
+document.getElementById("nd11").style.backgroundImage =  "url({%static 'images/o8.svg'%})";
+document.getElementById("nd21").style.backgroundImage =  "url({%static 'images/o8.svg'%})";
+document.getElementById("nd22").style.backgroundImage= "url({%static 'images/o8.svg'%})";
+}
+function MainPallet9(){
+document.getElementById("main_CONT").style.backgroundImage =  "url({%static 'images/o9.svg'%})";
+document.getElementById("nd11").style.backgroundImage =  "url({%static 'images/o9.svg'%})";
+document.getElementById("nd21").style.backgroundImage =  "url({%static 'images/o9.svg'%})";
+document.getElementById("nd22").style.backgroundImage = "url({%static 'images/o9.svg'%})";
+}
+function hide1(){
+document.getElementById("plt").style.display='none';
+}
+
+    function rashmith1(){
+        document.getElementById("main_CONT").style.display='block';
+        document.getElementById("nd11").style.display='none';
+        document.getElementById("nd21").style.display='none';
+        document.getElementById("nd22").style.display='none';
+    }
+    function rashmith2(){
+        document.getElementById("main_CONT").style.display='none';
+        document.getElementById("nd11").style.display='block';
+        document.getElementById("nd21").style.display='none';
+        document.getElementById("nd22").style.display='none';
+    }
+    function rashmith3(){
+        document.getElementById("main_CONT").style.display='none';
+        document.getElementById("nd11").style.display='none';
+        document.getElementById("nd21").style.display='block';
+        document.getElementById("nd22").style.display='none';
+    }
+    function rashmith4(){
+        document.getElementById("main_CONT").style.display='none';
+        document.getElementById("nd11").style.display='none';
+        document.getElementById("nd21").style.display='none';
+        document.getElementById("nd22").style.display='block';
+    }
+
+
+
+function myprint()
+{
+  document.getElementById('thisbt').style.display='none';
+  document.getElementById('plt').style.display='none';
+  document.getElementById('side_bar_div').style.display='none';
+  document.getElementById('templateselector').style.display='none';
+  window.print();
+}
+
+function reducesize1() {
+  let a = document.getElementById("parag1").innerText.length;
+  let b = document.getElementById("pp1").innerText.length;
+  let c = document.getElementById("par1").innerText.length;
+  
+
+  if (a>35) {
+    document.getElementById("parag1").style.fontSize="12px";
+    document.getElementById("pp1").style.fontSize="12px";
+  }
+}
+function reducesize2() {
+  let b = document.getElementById("parag2").innerText.length;
+
+  if (b>35) {
+    document.getElementById("parag2").style.fontSize="12px";
+  }
+}
+function reducesize3() {
+  let c = document.getElementById("parag3").innerText.length;
+
+  if (c>35) {
+    document.getElementById("parag3").style.fontSize="12px";
+  }
+}
+function reducesize4() {
+  let d = document.getElementById("parag4").innerText.length;
+
+  if (d>35) {
+    document.getElementById("parag4").style.fontSize="12px";
+  }
+}
+function reducesize5() {
+  let e = document.getElementById("parag5").innerText.length;
+
+  if (e>45) {
+    document.getElementById("parag5").style.fontSize="12px";
+  }
+}
+
+function reducesize6() {
+  let f = document.getElementById("parag6").innerText.length;
+
+  if (f>80) {
+    document.getElementById("parag6").style.fontSize="12px";
+  }
+}
+
+function reducesize7() {
+  let g = document.getElementById("parag7").innerText.length;
+
+  if (g>300) {
+    document.getElementById("parag7").style.fontSize="11px";
+  }
+}
+
+
+function reducesize10() {
+  let g = document.getElementById("parag10").innerText.length;
+
+  if (g>300) {
+    document.getElementById("parag10").style.fontSize="12px";
+  }
+}
+
+
+
+
+
+
+
+
+window.addEventListener("load", reducesize1);
+window.addEventListener("load", reducesize2);
+window.addEventListener("load", reducesize3);
+window.addEventListener("load", reducesize4);
+window.addEventListener("load", reducesize5);
+window.addEventListener("load", reducesize6);
+window.addEventListener("load", reducesize7);
+window.addEventListener("load", reducesize10);
+
+
+
+
+</script>
+
+</body> 
+</html>
